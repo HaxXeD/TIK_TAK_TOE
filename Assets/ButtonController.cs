@@ -7,6 +7,8 @@ public class ButtonController : MonoBehaviour
     private static bool isAalu = false;
     [SerializeField] private TMP_Text buttonText;
 
+    public string ReturnText() => buttonText.text;
+
     public void OnClick(){
         if(isAalu){
             isAalu = !isAalu;
@@ -18,5 +20,7 @@ public class ButtonController : MonoBehaviour
         }
 
         GetComponent<Button>().interactable = false;
+
+        GameEvents.current.ButtonClick();
     }
 }
